@@ -40,3 +40,23 @@ steps "Hello world (using Bash)" {
 
     }
 }
+
+steps "Run a Script" {
+    properties = {
+        Octopus.Action.TargetRoles = "RoleTyo"
+    }
+
+
+    actions "Run a Script" {
+        action_type = "Octopus.Script"
+        notes = "Tsfsdf"
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "Write-Host \"hello\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
+        }
+
+        worker_pool_variable = ""
+    }
+}
